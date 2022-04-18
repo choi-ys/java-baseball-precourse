@@ -23,11 +23,11 @@ public class StringTest {
     @DisplayName("split() : 주어진 문자열을 구분자를 기준으로 분리한 배열 검증")
     public void splitTest(String given, String[] expected) {
         // when
-        String[] result = given.split(",");
+        String[] actual = given.split(",");
 
         // then
-        Assertions.assertThat(result).as("원소의 포함 여부 검증").contains(expected);
-        Assertions.assertThat(result).as("전체 원소의 일치 여부 검증").containsExactly(expected);
+        Assertions.assertThat(actual).as("원소의 포함 여부 검증").contains(expected);
+        Assertions.assertThat(actual).as("전체 원소의 일치 여부 검증").containsExactly(expected);
     }
 
     private static Stream<Arguments> splitTest() {
