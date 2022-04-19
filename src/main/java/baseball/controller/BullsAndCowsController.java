@@ -12,16 +12,13 @@ public class BullsAndCowsController {
     public void run() {
         GameStatus gameStatus = GameStatus.ON;
         while (!gameStatus.equals(GameStatus.EXIT)) {
-            ComputerService computerService = new ComputerService();
-            Computer computer = computerService.generateComputer();
-            RefereeService refereeService = new RefereeService();
-            refereeService.verify(computer);
+            Computer computer = new ComputerService().generateComputer();
+            new RefereeService().verify(computer);
             gameStatus = isNew();
         }
     }
 
     public GameStatus isNew() {
-        PrintGuideMessage.printCorrectAnswerMessage();
         PrintGuideMessage.printContinueGameMessage();
         int newGameStatus = Integer.parseInt(Console.readLine());
         return newGameStatus == 1 ? GameStatus.ON : GameStatus.EXIT;
