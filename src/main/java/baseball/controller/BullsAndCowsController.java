@@ -8,20 +8,17 @@ import baseball.view.PrintGuideMessage;
 import camp.nextstep.edu.missionutils.Console;
 
 public class BullsAndCowsController {
-
     public void run() {
         GameStatus gameStatus = GameStatus.ON;
         while (!gameStatus.equals(GameStatus.EXIT)) {
-            ComputerService computerService = new ComputerService();
-            Computer computer = computerService.generateComputer();
-            RefereeService refereeService = new RefereeService();
-            refereeService.verify(computer);
+            Computer computer = new ComputerService().generateComputer();
+            new RefereeService().verify(computer);
             gameStatus = isNew();
         }
     }
 
+    // TODO : 게임 재 시작 입력값 유효성 검사
     public GameStatus isNew() {
-        PrintGuideMessage.printCorrectAnswerMessage();
         PrintGuideMessage.printContinueGameMessage();
         int newGameStatus = Integer.parseInt(Console.readLine());
         return newGameStatus == 1 ? GameStatus.ON : GameStatus.EXIT;
