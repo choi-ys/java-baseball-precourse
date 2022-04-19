@@ -8,7 +8,6 @@ import baseball.view.PrintGuideMessage;
 import camp.nextstep.edu.missionutils.Console;
 
 public class BullsAndCowsController {
-
     public void run() {
         GameStatus gameStatus = GameStatus.ON;
         while (!gameStatus.equals(GameStatus.EXIT)) {
@@ -18,6 +17,7 @@ public class BullsAndCowsController {
         }
     }
 
+    // TODO : 게임 재 시작 입력값 유효성 검사
     public GameStatus isNew() {
         PrintGuideMessage.printContinueGameMessage();
         int newGameStatus = Integer.parseInt(Console.readLine());
