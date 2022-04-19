@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
+import static baseball.constants.ErrorMessage.INVALID_NUMBER_BOUNDARY_MESSAGE;
 import static baseball.constants.NumberBoundary.COUNT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
@@ -61,7 +62,7 @@ class ComputerServiceTest {
         // Then
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> NumberValidator.numberBoundaryValidate(given))
-                .withMessageContaining("is invalid Number");
+                .withMessageMatching(INVALID_NUMBER_BOUNDARY_MESSAGE);
     }
 
     private static Stream<Arguments> isValidNumberTest_IllegalArgumentException() {
